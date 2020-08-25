@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <torch/script.h>
 #include <cuda_runtime_api.h>
 #include <spconv/pool_ops.h>
 #include <spconv/spconv_ops.h>
 
 static auto registry =
-    torch::jit::RegisterOperators("spconv::get_indice_pairs_2d", &spconv::getIndicePair<2>)
+    torch::RegisterOperators()
+        .op("spconv::get_indice_pairs_2d", &spconv::getIndicePair<2>)
         .op("spconv::get_indice_pairs_3d", &spconv::getIndicePair<3>)
         .op("spconv::get_indice_pairs_grid_2d", &spconv::getIndicePairPreGrid<2>)
         .op("spconv::get_indice_pairs_grid_3d", &spconv::getIndicePairPreGrid<3>)
