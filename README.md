@@ -10,6 +10,8 @@ This project only support CUDA 9.0+. If you are using cuda 8.0, please update it
 
 ## Install 
 
+* if you are using pytorch 1.4+ and encounter "nvcc fatal: unknown -Wall", you need to go to torch package dir and remove all flags contains "-Wall" in INTERFACE_COMPILE_OPTIONS in <your venv>/lib/python3.8/site-packages/torch/share/cmake/Caffe2/Caffe2Targets.cmake.
+
 0. Use ```git clone xxx.git --recursive``` to clone this repo.
 
 1. Install boost headers to your system include path, you can use either ```sudo apt-get install libboostall-dev``` or download compressed files from boost official website and copy headers to include path.
